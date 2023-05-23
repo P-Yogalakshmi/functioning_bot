@@ -1,0 +1,72 @@
+# version: "3.1"
+
+# rules:
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#   - intent: bot_challenge
+#   - action: utter_iamabot
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: item details
+  steps:
+  - action: utter_item_number
+  - intent: item_info
+  - action: action_get_itemdetail
+  - slot_was_set:
+    - item: ""
+  - action: utter_continue
+
+- rule: supplier details
+  steps:
+  
+  - action: utter_item_for_supp
+  - intent: item_info
+  - action: action_get_supplierdetail
+  - slot_was_set:
+    - supp_item: ""
+  - action: utter_continue
+
+- rule: inventory details
+  steps:
+  
+  - action: utter_item_for_soh
+  - intent: item_info
+  - action: action_get_inventorydetail
+  - slot_was_set:
+    - inventory_item: ""
+  - action: utter_continue
+
+# - rule: out_of_scope
+#   steps:
+
+#   - intent: nlu_fallback
+#   - action: utter_fallback
+- rule: others
+  steps:
+  - action: utter_others
+  - intent: others_info
+  - action: action_default_fallback
+  - slot_was_set:
+    - user_input: ""
+# - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+#   steps:
+#   - intent: fallback
+#   - action: action_default_fallback

@@ -1,0 +1,328 @@
+# version: "3.1"
+
+# stories:
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_great
+#   - action: utter_happy
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+# version: "3.1"
+
+# stories:
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_great
+#   - action: utter_happy
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+version: "3.1"
+
+stories:
+
+- story: session_new
+  steps:
+  # - action: utter_welcome
+  - intent: hello
+  - action: utter_session_started
+  - action: utter_item_details
+
+# - story: fallback
+#   steps:
+#   - intent: fallback
+#   - action: action_default_fallback
+
+- story: item details
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_query
+  - action: utter_item_details
+  - intent: item_details
+  - action: utter_item_number
+  - intent: item_info
+  - action: action_get_itemdetail
+  - slot_was_set:
+    - item: ""
+  - action: utter_continue
+  - intent: continue_info
+  - action: utter_item_number
+
+- story: supplier details
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_query
+  - action: utter_item_details
+  - intent: supplier_details
+  - action: utter_item_for_supp
+  - intent: item_info
+  - action: action_get_supplierdetail
+  - slot_was_set:
+    - supp_item: ""
+  - action: utter_continue
+  - intent: continue_info
+  - action: utter_item_for_supp
+
+# - story: supplier details previous item 
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: user_query
+#   - action: utter_item_details
+#   - intent: supplier_details
+#   # - action: utter_prev_item_supp_detail
+#   - intent: continue_info
+#   - action: action_get_supplierdetail_prev_item
+#   - slot_was_set:
+#     - supp_item: ""
+#   - action: utter_continue
+#   - intent: continue_info
+#   - action: utter_item_for_supp
+
+# - story: supplier details previous item exit
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: user_query
+#   - action: utter_item_details
+#   - intent: supplier_details
+#   - action: utter_prev_item_supp_detail
+#   - intent: exit_info
+#   - action: utter_item_for_supp
+#   - action: action_get_supplierdetail
+#   - slot_was_set:
+#     - supp_item: ""
+#   - action: utter_continue
+#   - intent: continue_info
+#   - action: utter_item_for_supp
+
+- story: inventory details
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_query
+  - action: utter_item_details
+  - intent: inventory_details
+  - action: utter_item_for_soh
+  - intent: item_info
+  - action: action_get_inventorydetail
+  - slot_was_set:
+    - inventory_item: ""
+  - action: utter_continue
+  - intent: continue_info
+  - action: utter_item_for_soh
+
+- story: item details exit
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_query
+  - action: utter_item_details
+  - intent: item_details
+  - action: utter_item_number
+  - intent: item_info
+  - action: action_get_itemdetail
+  - slot_was_set:
+    - item: ""
+  - action: utter_continue
+  - intent: exit_info
+  - action: utter_item_details
+  
+
+- story: supplier details exit
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_query
+  - action: utter_item_details
+  - intent: supplier_details
+  - action: utter_item_for_supp
+  - intent: item_info
+  - action: action_get_supplierdetail
+  - slot_was_set:
+    - supp_item: ""
+  - action: utter_continue
+  - intent: exit_info
+  - action: utter_item_details
+  
+
+- story: inventory details exit
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_query
+  - action: utter_item_details
+  - intent: inventory_details
+  - action: utter_item_for_soh
+  - intent: item_info
+  - action: action_get_inventorydetail
+  - slot_was_set:
+    - inventory_item: ""
+  - action: utter_continue
+  - intent: exit_info
+  - action: utter_item_details
+  
+- story: prev_item details
+  steps:
+  - intent: order_details_prev_item
+  - action: utter_did_you_want_prev_item_order
+  - intent: continue_info
+  - action: action_order_details_previous_item
+  - action: utter_continue
+  - intent: continue_info
+  - action: utter_did_you_want_prev_item_order
+  - intent: continue_info
+  - action: action_order_details_previous_item
+
+# - story: prev_item details no
+#   steps:
+#   - intent: order_details_prev_item
+#   - action: utter_did_you_want_prev_item_order
+#   - intent: continue_info
+#   - action: action_order_details_previous_item
+#   - action: utter_continue
+#   - intent: continue_info
+#   - action: utter_did_you_want_prev_item_order
+
+
+# - story: new order details exit prev item
+#   steps:
+#   - intent: order_details_prev_item
+#   - action: utter_did_you_want_prev_item_order
+#   - intent: exit_info
+#   - action: utter_order_number
+#   - intent: order_info
+#   - action: action_order_details_not_previous_item
+#   - action: utter_continue
+#   - intent: continue_info
+#   - action: utter_did_you_want_prev_item_order
+
+- story: new order details exit prev item
+  steps:
+  - intent: order_details_prev_item
+  - action: utter_did_you_want_prev_item_order
+  - intent: exit_info
+  - action: utter_order_number
+  - intent: order_info
+  - action: action_order_detail_normal
+  - action: utter_continue
+  - intent: continue_info
+  - action: utter_order_number
+
+- story: new order details exit prev item1
+  steps:
+  - intent: order_details_prev_item
+  - action: utter_did_you_want_prev_item_order
+  - intent: exit_info
+  - action: utter_order_number
+  - intent: order_info
+  - action: action_order_detail_normal
+  - action: utter_continue
+  - intent: continue_info
+  - action: utter_order_number
+  - intent: order_info
+  - action: action_order_detail_normal
+  - action: utter_item_details
+
+# - story: transfer detail
+#   steps:
+#   - intent: transfer_detail
+#   - action: utter_transfer_details
+#   - intent: transfer_info
+#   - action: get_transfer_action
+#   - slot_was_set:
+#     - transfer_no: ""
+#   - action: action_save_conversation
+#   - action: utter_continue
+#   - intent: continue_info
+#   - action: utter_item_details
+
+- story: normal order details continue
+  steps:
+  - intent: order_details
+  - action: utter_order_number
+  - intent: order_info
+  - action: action_order_detail_normal
+  - slot_was_set:
+    - order_number: ""
+  - action: utter_continue
+  - intent: continue_info
+  - action: utter_order_number
+
+- story: normal order details exit
+  steps:
+  - intent: order_details
+  - action: utter_order_number
+  - intent: order_info
+  - action: action_order_detail_normal
+  - slot_was_set:
+    - order_number: ""
+  - action: utter_continue
+  - intent: exit_info
+  - action: utter_item_details
+
+- story: others
+  steps:
+  - intent: others  
+  - action: action_default_fallback
+  - slot_was_set:
+    - user_input: ""
+
+- story: out_of_scope
+  steps:
+
+  - intent: nlu_fallback
+  - action: utter_fallback
+  
+
+
+
+  
+  
+
+
+
+

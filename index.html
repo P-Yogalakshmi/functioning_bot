@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+</head>
+<!-- style="background-color: #D7D2D0; -->
+<body>
+  <script>!(function () {
+      let e = document.createElement("script"),
+        t = document.head || document.getElementsByTagName("head")[0];
+      (e.src =
+        "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"),
+        // Replace 1.x.x with the version that you want
+        (e.async = !0),
+        (e.onload = () => {
+          window.WebChat.default(
+            {
+              customData: { language: "en" },
+              initPayload: "/hello",
+              socketUrl: "http://localhost:5005",
+
+              // add other props here
+              title: "LOGIC RETAIL BOT"
+            },
+            null
+          );
+        }),
+        t.insertBefore(e, t.firstChild);
+    })();
+    
+    localStorage.clear();
+    document.getElementById("clear-chat-btn").addEventListener("click", function () {
+      localStorage.removeItem("rasa-demo-chat-history");
+      location.reload();
+    });
+
+  </script>
+
+  <div class="heading2 col-md-12 col-md-6" id="heading" style=" color: beige;">
+    <h1 class="display-4 text-center mb-4">Hello! I am here to help you with all your queries. <br> </h1>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // Detect when chat widget is opened
+      $('.rw-launcher').on('click', function () {
+        // Modify the size of the div
+        $('.heading2').css('padding', '500px');
+      });
+    });
+  </script>
+  <!-- <button id="clear-chat-btn">Clear Chat</button> -->
+</body>
+</html>

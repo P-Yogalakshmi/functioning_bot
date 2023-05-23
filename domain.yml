@@ -1,0 +1,202 @@
+# version: "3.1"
+
+# intents:
+#   - greet
+#   - goodbye
+#   - affirm
+#   - deny
+#   - mood_great
+#   - mood_unhappy
+#   - bot_challenge
+
+# responses:
+#   utter_greet:
+#   - text: "Hey! How are you?"
+
+#   utter_cheer_up:
+#   - text: "Here is something to cheer you up:"
+#     image: "https://i.imgur.com/nGF1K8f.jpg"
+
+#   utter_did_that_help:
+#   - text: "Did that help you?"
+
+#   utter_happy:
+#   - text: "Great, carry on!"
+
+#   utter_goodbye:
+#   - text: "Bye"
+
+#   utter_iamabot:
+#   - text: "I am a bot, powered by Rasa."
+
+# session_config:
+#   session_expiration_time: 60
+#   carry_over_slots_to_new_session: true
+version: '3.1'
+intents:
+- bot_challenge
+- goodbye
+- greet
+- hello
+- invent_info
+- inventory_details
+- item_details
+- item_info
+- supp_info
+- supplier_details
+- user_query
+- continue_info
+- exit_info
+- order_details_prev_item
+- order_info
+- transfer_detail
+- transfer_info
+- fallback
+- order_details
+- others
+- others_info
+
+entities:
+- item
+- inventory_item
+- supp_item
+- prev_item
+- order_no
+- transfer_no
+- tsf_no
+- order_number
+- user_input
+
+slots:
+  item:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: item
+  supp_item:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: item
+  inventory_item:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: item
+  prev_item:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: item
+  order_no:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: order_no
+  order_number:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: order_no
+  transfer_no:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: transfer_no
+  tsf_no:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: transfer_no
+  user_input:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: user_input
+
+    
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_item_details:
+  - text: 'which of the details of the below you want :'
+    buttons:
+    - title: item details
+      payload: /item_details
+    - title: supplier details
+      payload: /supplier_details
+    - title: inventory details
+      payload: /inventory_details
+    - title: order details
+      payload: /order_details_prev_item
+    # - title: transfer details
+    #   payload: /transfer_detail
+  utter_session_started:
+  - text: Welcome to Logic Retail Bot
+  utter_item_number:
+  - text: enter item number
+  utter_item_for_supp:
+  - text: enter item number for supplier details
+  utter_item_for_soh:
+  - text: enter item number for inventory details
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_continue:
+  - text: Do you want to continue?
+  utter_did_you_want_prev_item_order:
+  - text: do you want the order details for the previous entered item '{prev_item}'?
+  utter_order_number:
+  - text: enter order number
+  utter_transfer_details:
+  - text: enter transfer number
+  utter_did_you_want_prev_transfer:
+  - text: do you want the order details for the previous entered transfer number?
+  utter_prev_item_supp_detail:
+  - text: do you want supplier details for previous entered item '{item}'?
+  utter_prev_item_inventory_detail:
+  - text: do you want inventory details for previous entered item '{item}'?
+  utter_others:
+  - text: what do you want to know?
+  utter_fallback:
+  - text: 'Did you mean one of the following options:'
+    buttons:
+    - title: item details
+      payload: /item_details
+    - title: supplier details
+      payload: /supplier_details
+    - title: inventory details
+      payload: /inventory_details
+    - title: order details
+      payload: /order_details
+    - title: others
+      payload: /others
+  
+actions:
+- action_get_itemdetail
+- utter_item_number
+- utter_item_for_supp
+- utter_item_details
+- action_get_supplierdetail
+- action_get_inventorydetail
+- action_order_details_previous_item
+- action_order_details_not_previous_item
+- get_transfer_action
+- action_save_conversation
+- action_order_detail_normal
+- action_get_inventorydetail_prev_item
+- action_get_supplierdetail_prev_item
+- action_call_gpt
+- action_default_fallback
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

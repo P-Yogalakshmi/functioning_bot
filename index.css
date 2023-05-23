@@ -1,0 +1,108 @@
+/* .container{
+
+    position: absolute;
+    top: 0;
+    right: 45.500;
+    bottom: 0;
+    left: 45.500;
+    margin: auto;
+} */
+/* -------------------------------------------------------MAIN PAGE -----------------------------------------------------*/
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+body {
+    background-image: url("cart1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* setting outline for the div */
+/* .heading1{
+    outline: 1px solid whitesmoke;
+    margin is for the box's space from the top */
+    /* margin-top: 10px;
+    /* padding is for the distance of the text from the outline  */
+    /* padding: 10px; 
+} */
+#button1,
+#button2 {
+    margin-bottom: 10px;
+}
+
+/* 129.188 811 */
+
+/* -------------------------------------------------------INDEX PAGE -----------------------------------------------------*/
+
+/* chatbot is getting filled to the whole screen from 800 and below. 
+making responsive changes above 801 */
+
+/* we need the box to be filled in all the sizes nd only the text to be responsive. and the chatbot, when opened shouldn't hide the text. */
+/* the chat window's minimum size is 370 . so moving the text 400px from the right(padding) is enogh fo rhe responsiveness */
+.heading2 {
+    margin-top: 100px;
+    padding: 100px;
+    padding-right: 400px;
+    /* opacity - (1: opaque, 0: transparent, 0.5: medium) */
+    /* opacity: 0.5;    This is making the div and it's content semi-transparent, all together */
+    /* background-color: rgba(#427B90, 0.5); */
+}
+
+.heading1 {
+    padding: 50px;
+    text-align: center;
+}
+
+.buttons {
+    padding-top: 10px;
+}
+
+/* /* @media screen and (max-width: 979px) {
+    .heading2{
+       
+        /* padding: 500px; */
+/* padding-right: 200px;
+        padding-left: 400px; */
+/* border-left-width: 315px;
+        border-right-width: 315px;
+        margin-left: 0px;
+        margin-right: 0px; */
+
+
+
+
+
+/* styles for medium screens (between 576px and 992px) */
+/* @media screen and (min-width: 801px) and (max-width: 1000px) {
+    .heading2{
+        margin: 100px;
+        padding: 500px;
+        padding-right: 200px;
+        padding-left: 400px;
+        margin-left: 200;
+        margin-right: 0px;
+        border-left-width: 315px;
+        border-right-width: 315px;
+        right: 200px;
+        margin-left: 0px;
+        
+    }
+} */
+
+/* styles for large screens (over 992px) */
+/* @media screen and (min-width: 992px) {
+    body {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+} */

@@ -1,0 +1,278 @@
+# version: "3.1"
+#shruti code
+# nlu:
+# - intent: greet
+#   examples: |
+#     - hey
+#     - hello
+#     - hi
+#     - hello there
+#     - good morning
+#     - good evening
+#     - moin
+#     - hey there
+#     - let's go
+#     - hey dude
+#     - goodmorning
+#     - goodevening
+#     - good afternoon
+
+# - intent: goodbye
+#   examples: |
+#     - cu
+#     - good by
+#     - cee you later
+#     - good night
+#     - bye
+#     - goodbye
+#     - have a nice day
+#     - see you around
+#     - bye bye
+#     - see you later
+
+# - intent: affirm
+#   examples: |
+#     - yes
+#     - y
+#     - indeed
+#     - of course
+#     - that sounds good
+#     - correct
+
+# - intent: deny
+#   examples: |
+#     - no
+#     - n
+#     - never
+#     - I don't think so
+#     - don't like that
+#     - no way
+#     - not really
+
+# - intent: mood_great
+#   examples: |
+#     - perfect
+#     - great
+#     - amazing
+#     - feeling like a king
+#     - wonderful
+#     - I am feeling very good
+#     - I am great
+#     - I am amazing
+#     - I am going to save the world
+#     - super stoked
+#     - extremely good
+#     - so so perfect
+#     - so good
+#     - so perfect
+
+# - intent: mood_unhappy
+#   examples: |
+#     - my day was horrible
+#     - I am sad
+#     - I don't feel very well
+#     - I am disappointed
+#     - super sad
+#     - I'm so sad
+#     - sad
+#     - very sad
+#     - unhappy
+#     - not good
+#     - not very good
+#     - extremly sad
+#     - so saad
+#     - so sad
+
+# - intent: bot_challenge
+#   examples: |
+#     - are you a bot?
+#     - are you a human?
+#     - am I talking to a bot?
+#     - am I talking to a human?
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: item_details
+  examples: |
+    - item details
+    - item
+    - details of item
+    - item detail
+    - SKU
+    - product
+    - stock item
+    - merchandise
+    - stock keeping item
+    - goods
+- intent: supplier_details
+  examples: |
+    - supplier details
+    - supplier
+    - details of supplier
+    - supplier detail
+- intent: inventory_details
+  examples: |
+    - inventory details
+    - soh
+    - details of soh
+    - soh detail
+- intent: item_info
+  examples: |
+    - [100000930](item)
+    - [](item)
+    - item number is [100490281](item)
+    - item no [100000930](item)
+    - [100490281](item)
+    - [100000930](item)
+- intent: supp_info
+  examples: |
+    - supplier detail for item [100000930](supp_item)
+    - item number for supplier detail [100000930](supp_item)
+    - supplier info for item [](supp_item)
+    - [100000930](supp_item)
+    - [](supp_item)
+    - suplier detail for item [10049028](inventory_item)
+- intent: invent_info
+  examples: |
+    - inventory detail for item [100490281](inventory_item)
+    - soh detail for item [100490153](inventory_item)
+    - soh for item [](inventory_item)
+    - inventory for item [100490281](inventory_item)
+    - [100490281](inventory_item)
+    - [](inventory_item)
+- intent: user_query
+  examples: |
+    - item info
+    - about item details
+    - I would like to see product details
+    - I would like to see barcode details
+- intent: hello
+  examples: |
+    - start
+    - first
+
+- intent: continue_info
+  examples: |
+    - yes
+    - continue
+    - yeah
+    - sure
+    - proceed
+
+- intent: exit_info
+  examples: |
+    - no
+    - nope
+    - exit
+    - quit
+
+- intent: order_details_prev_item
+  examples: |
+    - I want the order details for the item
+    - show order details for the item
+    - order details for item
+    - give the order details for the item
+    - status of order details for item
+
+- intent: order_info
+  examples: |
+    - [order number] is [10014](order_no)
+    - [order number] is [](order_no)
+    - I placed an order at [10014](order_no)
+    - Can you confirm if my order with order number [](order_no)
+    - status of order [10012](order_no)
+    - order [10012](order_no)
+    - [700336](order_no)
+
+- intent: transfer_detail
+  examples: |
+    - transfer details
+    - give the transfer details
+    - tsf detail
+    - transfer status
+
+
+- intent: transfer_info
+  examples: |
+    - transfer number is [3001200014](transfernumber)    
+    - tsf number is [](transfernumber)
+    - tsf detail [3000230033](transfernumber)
+    - transfer number [](transfernumber) for the transfer details
+    - transfer details for transfer number [3000230033](transfernumber)
+    - transfer details for transfer number [](transfernumber)
+    - transfer detail for [3001200014](transfernumber)
+
+- intent: shipment_details_for_prev_transfer
+  examples: |
+    - status of shipment for transfer
+    - shipment details for transfer number
+
+# - intent: fallback
+#   examples: |
+#     - I'm not sure what to say
+#     - Can you repeat that?
+#     - I don't understand
+#     - What do you mean?
+#     - Sorry, what was that?
+
+- intent: order_details
+  examples: |
+    - sales order
+    - purchase order
+    - invoice
+    - order history
+    - order fulfillment
+    - back order
+    - order details
+
+# - intent: out_of_scope
+#   examples: |
+#     - want to order food
+#     - what is the time
+#     - who is the cheif minister of Tamilnadu?
+    
+- intent: others
+  examples: |
+    - something else
+    - I have a different question
+    - Can you help me with something not listed?
+    - I need assistance with something else
+    - This is unrelated to the options provided
+    - Do you have information on other topics?
+- intent: others_info
+  examples: |
+    - [](user_input)
+    - any message(user_input)
+    - query [](user_input)

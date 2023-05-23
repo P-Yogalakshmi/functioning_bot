@@ -1,0 +1,6 @@
+__pycache__/
+.rasa/
+Include/
+Lib/
+Scripts/
+share/

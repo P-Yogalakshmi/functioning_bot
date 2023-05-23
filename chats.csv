@@ -1,0 +1,11 @@
+intent,user_input,entity_name,entity_value,action,bot_reply
+transfer_detail,transfer details,,,utter_transfer_details,enter transfer number
+transfer_info,transfer number is 3001200014,transfernumber,3001200014,transfer_detail,transfer details,,,utter_transfer_details,enter transfer number
+transfer_info,transfer number is 3001200014,transfernumber,3001200014,utter_continue,Do you want to continue?
+continue_info,yes,,,utter_item_details,which of the details of the below you want :
+user_query,item info,,,utter_item_details,which of the details of the below you want :
+transfer_detail,/transfer_detail,,,utter_transfer_details,enter transfer number
+transfer_info,transfer number is 3001200014,transfernumber,3001200014,user_query,item info,,,utter_item_details,which of the details of the below you want :
+transfer_detail,/transfer_detail,,,utter_transfer_details,enter transfer number
+transfer_info,transfer number is 3001200014,transfernumber,3001200014,utter_continue,Do you want to continue?
+transfer_info,tsf detail 3000230033,order_no,3000230033,
